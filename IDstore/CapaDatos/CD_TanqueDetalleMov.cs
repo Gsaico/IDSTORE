@@ -12,7 +12,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
-
+using System.Data.OracleClient;
 
 namespace CapaDatos
 {
@@ -24,13 +24,18 @@ namespace CapaDatos
             try
             {
 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
 
-                MySqlCommand cmd = new MySqlCommand("sp_Busqueda_Captura_X_DNI", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("dni", dni);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+
+                OracleCommand cmd = new OracleCommand(String.Format(" select c.dni, c.nombres, c.apellidos, t.codigo_abastecimiento, t.snapshotpicture, t.snapshotvideo,t.volumen_retirado,a.idtanque  from colaboradores  c inner join registroes  r on r.dni=c.dni inner join tanquedetallemov  t on t.idregistro=r.idregistro inner join abastecimiento  a on a.codigo_abastecimiento=t.codigo_abastecimiento where c.dni = '{0}'",dni), cnx);
+                cnx.Open();
+
+                OracleDataReader reader;
+
+                reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                // lleno el DataTable con el datareader
+                dt.Load(reader);
+
 
             }
             catch (Exception)
@@ -40,20 +45,25 @@ namespace CapaDatos
 
             return dt;
         }
+
         public DataTable sp_Busqueda_Captura_X_NombresyApellidos(string nombres, string apellidos)
         {
             DataTable dt = new DataTable();
             try
             {
 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
 
-                MySqlCommand cmd = new MySqlCommand("sp_Busqueda_Captura_X_NombresyApellidos", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("nombres", nombres);
-                cmd.Parameters.AddWithValue("apellidos", apellidos);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+
+                OracleCommand cmd = new OracleCommand(String.Format(" select c.dni, c.nombres, c.apellidos, t.codigo_abastecimiento, t.snapshotpicture, t.snapshotvideo,t.volumen_retirado,a.idtanque  from colaboradores  c inner join registroes  r on r.dni=c.dni inner join tanquedetallemov  t on t.idregistro=r.idregistro inner join abastecimiento  a on a.codigo_abastecimiento=t.codigo_abastecimiento where where c.nombres like '{0}' or c.apellidos like '{1}'",nombres, apellidos), cnx);
+                cnx.Open();
+
+                OracleDataReader reader;
+
+                reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                // lleno el DataTable con el datareader
+                dt.Load(reader);
+
 
             }
             catch (Exception)
@@ -63,20 +73,25 @@ namespace CapaDatos
 
             return dt;
         }
+
         public DataTable sp_Busqueda_Captura_X_Codigo_Abastecimiento(string codigo_abastecimiento)
         {
             DataTable dt = new DataTable();
             try
             {
 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
 
-                MySqlCommand cmd = new MySqlCommand("sp_Busqueda_Captura_X_Codigo_Abastecimiento", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("codigo_abastecimiento", codigo_abastecimiento);
-               
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+
+                OracleCommand cmd = new OracleCommand(String.Format(" select c.dni, c.nombres, c.apellidos, t.codigo_abastecimiento, t.snapshotpicture, t.snapshotvideo,t.volumen_retirado,a.idtanque  from colaboradores  c inner join registroes  r on r.dni=c.dni inner join tanquedetallemov  t on t.idregistro=r.idregistro inner join abastecimiento  a on a.codigo_abastecimiento=t.codigo_abastecimiento where t.codigo_abastecimiento = '{0}'", codigo_abastecimiento), cnx);
+                cnx.Open();
+
+                OracleDataReader reader;
+
+                reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                // lleno el DataTable con el datareader
+                dt.Load(reader);
+
 
             }
             catch (Exception)
@@ -86,20 +101,25 @@ namespace CapaDatos
 
             return dt;
         }
+
         public DataTable sp_Busqueda_Captura_X_Nro_Tanque(string Nro_Tanque)
         {
             DataTable dt = new DataTable();
             try
             {
 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
 
-                MySqlCommand cmd = new MySqlCommand("sp_Busqueda_Captura_X_Nro_Tanque", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Nro_Tanque", Nro_Tanque);
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
+                OracleCommand cmd = new OracleCommand(String.Format(" select c.dni, c.nombres, c.apellidos, t.codigo_abastecimiento, t.snapshotpicture, t.snapshotvideo,t.volumen_retirado,a.idtanque  from colaboradores  c inner join registroes  r on r.dni=c.dni inner join tanquedetallemov  t on t.idregistro=r.idregistro inner join abastecimiento  a on a.codigo_abastecimiento=t.codigo_abastecimiento where t.idtanque = '{0}'", Nro_Tanque), cnx);
+                cnx.Open();
+
+                OracleDataReader reader;
+
+                reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                // lleno el DataTable con el datareader
+                dt.Load(reader);
+
 
             }
             catch (Exception)
@@ -109,6 +129,7 @@ namespace CapaDatos
 
             return dt;
         }
+       
         public void NuevoTanqueDetalleMov(CE_TanqueDetalleMov objce_tanquedetallemov)
         {//el metodo me permite
             try

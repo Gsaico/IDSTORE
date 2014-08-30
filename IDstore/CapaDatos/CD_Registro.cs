@@ -99,8 +99,10 @@ namespace CapaDatos
                OracleConnection cnx = Conexion.ObtenerConexionOracle();
 
 
-               OracleCommand cmd = new OracleCommand(String.Format("SELECT * FROM registroes WHERE ROWNUM <= 1 and idregistro LIKE  '{0}' ORDER BY idregistro desc", objce_registro.idregistro), cnx);
+               OracleCommand cmd = new OracleCommand(String.Format("SELECT * FROM (SELECT * FROM registroes WHERE  idregistro LIKE  '{0}' ORDER BY idregistro desc) WHERE  ROWNUM <= 1", objce_registro.idregistro), cnx);
                cnx.Open();
+               
+
                OracleDataReader reader;
 
                reader = cmd.ExecuteReader();
@@ -112,6 +114,8 @@ namespace CapaDatos
                    while (reader.Read())
                    {
                        objce_registrotemp.idregistro = Convert.ToString(reader["idregistro"]);
+
+
                        objce_registrotemp.dni = Convert.ToString(reader["dni"]);
                        objce_registrotemp.timeentradasalida = Convert.ToDateTime(reader["timeentradasalida"]);
                        objce_registrotemp.idestado_es = Convert.ToString(reader["idestado_es"]);

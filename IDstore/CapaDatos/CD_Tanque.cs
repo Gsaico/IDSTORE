@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using CapaEntidad;
+using System.Data.OracleClient;
 namespace CapaDatos
 {
     public class CD_Tanque
@@ -15,8 +16,8 @@ namespace CapaDatos
         {//el metodo me permite almacenar los datos del nuevo tanque.
             try
             {
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+                OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = cnx;
                 cmd.CommandText = "sp_Nuevo_Tanque";
@@ -38,34 +39,36 @@ namespace CapaDatos
             }
 
         }
-
         public CE_Tanque BuscarTanqueXID(CE_Tanque objce_tanque)
-        {//la funcion me permite recuperar los datos del tanque
+        {
             try
             {
 
 
                 CE_Tanque objce_tanquetemp = new CE_Tanque();
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlDataReader reader;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = cnx;
-                cmd.CommandText = "sp_BuscarTanqueXID";
-                //asignar paramentros al procedimiento almacenado
-                cmd.Parameters.AddWithValue("idtanque", objce_tanque.idtanque);
-                //abrir la conexion
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+
+
+                OracleCommand cmd = new OracleCommand(String.Format("select * from tanque where idtanque='{0}'", objce_tanque.idtanque), cnx);
                 cnx.Open();
-                //ejecutar el procedimiento almacenado
+                OracleDataReader reader;
+
                 reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    objce_tanquetemp.idtanque = Convert.ToString(reader["idtanque"]);
-                    objce_tanquetemp.volumenactual = Convert.ToDouble(reader["volumenactual"]);
-                    objce_tanquetemp.volumenmaximo = Convert.ToDouble(reader["volumenmaximo"]);
-                  
+                //verifico si hay filas devueltas
+                Boolean hayfilas = reader.HasRows;
+                if (hayfilas == true)
+                {//si hay filas devuelvo el resultado de la consulta
+                    while (reader.Read())
+                    {
+                        objce_tanquetemp.idtanque = Convert.ToString(reader["idtanque"]);
+                        objce_tanquetemp.volumenactual = Convert.ToDouble(reader["volumenactual"]);
+                        objce_tanquetemp.volumenmaximo = Convert.ToDouble(reader["volumenmaximo"]);
+
+                    }
+
                 }
+
                 //Cerrar conexion
                 cnx.Close();
                 return objce_tanquetemp;
@@ -76,5 +79,6 @@ namespace CapaDatos
             }
 
         }
+      
     }
 }
