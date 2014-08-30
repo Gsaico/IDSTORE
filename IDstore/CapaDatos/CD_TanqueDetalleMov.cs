@@ -138,11 +138,11 @@ namespace CapaDatos
                 //byte[] areglobytesnapshotpicture = newfoto.imageToByteArray(objce_tanquedetallemov.snapshotpicture);
              
                 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+                OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = cnx;
-                cmd.CommandText = "sp_Nuevo_Tanque_Detalle_Mov";
+                cmd.CommandText = "SP_NUEVO_TANQUE_DETALLE_MOV";
                 //asignar paramentros al procedimiento almacenado
 
                 cmd.Parameters.AddWithValue("idtanque", objce_tanquedetallemov.idtanque);
@@ -166,46 +166,33 @@ namespace CapaDatos
 
         }
         public CE_TanqueDetalleMov SumarVolumenRetirado(CE_TanqueDetalleMov objce_tanquedetallemov)
-        {//la funcion me permite 
+        {//la funcion me permite recuperar los datos del colaborador en el objeto CE_Colaborador
             try
             {
 
 
                 CE_TanqueDetalleMov objce_tanquedetallemovtemp = new CE_TanqueDetalleMov();
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlDataReader reader;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = cnx;
-                cmd.CommandText = "sp_Sumar_Volumen_Retirado";
-                //asignar paramentros al procedimiento almacenado
-                cmd.Parameters.AddWithValue("id_codigo_abastecimiento", objce_tanquedetallemov.codigo_abastecimiento);
-                //abrir la conexion
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+
+
+                OracleCommand cmd = new OracleCommand(String.Format("SELECT count (*) as filas, nvl(sum(volumen_retirado),0) as totalretirado  FROM tanquedetallemov where codigo_abastecimiento='{0}'", objce_tanquedetallemov.codigo_abastecimiento), cnx);
                 cnx.Open();
-                //ejecutar el procedimiento almacenado
+                OracleDataReader reader;
+
                 reader = cmd.ExecuteReader();
 
                 //verifico si hay filas devueltas
                 Boolean hayfilas = reader.HasRows;
                 if (hayfilas == true)
                 {//si hay filas devuelvo el resultado de la consulta
-
                     while (reader.Read())
                     {
+                        objce_tanquedetallemovtemp.totalretirado = Convert.ToDouble(reader["totalretirado"]); 
                         
-                            objce_tanquedetallemovtemp.totalretirado = Convert.ToDouble(reader["totalretirado"]); 
-                        
-                        
-                                              
-                       
                     }
+
                 }
 
-                else
-                {
-                    //si no hay filas devuelvo la ce con 0
-                    objce_tanquedetallemovtemp.totalretirado = 0;
-                }
                 //Cerrar conexion
                 cnx.Close();
                 return objce_tanquedetallemovtemp;
@@ -216,5 +203,6 @@ namespace CapaDatos
             }
 
         }
+      
     }
 }
