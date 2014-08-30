@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using CapaEntidad;
 
+using System.Data.OracleClient;
 namespace CapaDatos
 {
    public  class CD_Registro
@@ -16,16 +17,15 @@ namespace CapaDatos
        {//el metodo me permite almacenar los datos del nuevo colaborador.
            try
            {
-               MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-               MySqlCommand cmd = new MySqlCommand();
+               OracleConnection cnx = Conexion.ObtenerConexionOracle();
+               OracleCommand cmd = new OracleCommand();
                cmd.CommandType = CommandType.StoredProcedure;
                cmd.Connection = cnx;
-               cmd.CommandText = "sp_Nuevo_Registro_ES";
+               cmd.CommandText = "sp_nuevo_registro_es";
                //asignar paramentros al procedimiento almacenado
-               cmd.Parameters.AddWithValue("idregistro", objce_registro.idregistro);
-               cmd.Parameters.AddWithValue("dni", objce_registro.dni);
-               cmd.Parameters.AddWithValue("timeentradasalida", objce_registro.timeentradasalida);
-               cmd.Parameters.AddWithValue("idestado_es", objce_registro.idestado_es);
+               cmd.Parameters.AddWithValue("idregistro",OracleType.VarChar).Value = objce_registro.idregistro;
+               cmd.Parameters.AddWithValue("dni",OracleType.VarChar).Value = objce_registro.dni;
+               cmd.Parameters.AddWithValue("idestado_es", OracleType.VarChar).Value =objce_registro.idestado_es;
            
               
                //abrir la conexion
@@ -41,89 +41,93 @@ namespace CapaDatos
            }
 
        }
-        public bool UltimoRegistrodeIngresoSalida(string dni)
-        {//la funcion me permite recuperar los datos del colaborador en el objeto CE_Colaborador
-            try
-            {
-                int idestado_es = 999;
+        //public bool UltimoRegistrodeIngresoSalida(string dni)
+        //{//la funcion me permite recuperar los datos del colaborador en el objeto CE_Colaborador
+        //    try
+        //    {
+        //        int idestado_es = 999;
 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlDataReader reader;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = cnx;
-                cmd.CommandText = "sp_Ultimo_Registro_de_Ingreso_Salida";
-                //asignar paramentros al procedimiento almacenado
-                cmd.Parameters.AddWithValue("dni", dni);
-                //abrir la conexion
-                cnx.Open();
-                //ejecutar el procedimiento almacenado
-                reader = cmd.ExecuteReader();
+        //        MySqlConnection cnx = Conexion.ObtenerConexionMySql();
+        //        MySqlCommand cmd = new MySqlCommand();
+        //        MySqlDataReader reader;
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.Connection = cnx;
+        //        cmd.CommandText = "sp_Ultimo_Registro_de_Ingreso_Salida";
+        //        //asignar paramentros al procedimiento almacenado
+        //        cmd.Parameters.AddWithValue("dni", dni);
+        //        //abrir la conexion
+        //        cnx.Open();
+        //        //ejecutar el procedimiento almacenado
+        //        reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    idestado_es = Convert.ToInt16(reader["idestado_es"]);
+        //        while (reader.Read())
+        //        {
+        //            idestado_es = Convert.ToInt16(reader["idestado_es"]);
 
-                }
-                //Cerrar conexion
-                cnx.Close();
-                if (idestado_es == 1)
-                {
+        //        }
+        //        //Cerrar conexion
+        //        cnx.Close();
+        //        if (idestado_es == 1)
+        //        {
 
-                    return true;
-                }
+        //            return true;
+        //        }
 
-                else //if (idestado_es == 0)
-                {
+        //        else //if (idestado_es == 0)
+        //        {
 
-                    return false;
-                }
+        //            return false;
+        //        }
 
 
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
 
-        }
-        public CE_Registro UltimoRegistroXYeardni(CE_Registro objce_registro)
-        {//la funcion me 
-            try
-            {
-                Imagenes newfoto = new Imagenes();
+        //}
+       public CE_Registro UltimoRegistroXYeardni(CE_Registro objce_registro)
+       {//la funci
+           try
+           {
+               CE_Registro objce_registrotemp = new CE_Registro();
+              
 
-                CE_Registro objce_registrotemp = new CE_Registro();
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlDataReader reader;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = cnx;
-                cmd.CommandText = "sp_UltimoRegistro_X_Year_dni";
-                //asignar paramentros al procedimiento almacenado
-                cmd.Parameters.AddWithValue("cadena", objce_registro.idregistro);
-                //abrir la conexion
-                cnx.Open();
-                //ejecutar el procedimiento almacenado
-                reader = cmd.ExecuteReader();
+               CE_Colaborador objce_colaboradortemp = new CE_Colaborador();
+               OracleConnection cnx = Conexion.ObtenerConexionOracle();
 
-                while (reader.Read())
-                {
-                    objce_registrotemp.idregistro = Convert.ToString(reader["idregistro"]);
-                    objce_registrotemp.dni = Convert.ToString(reader["dni"]);
-                    objce_registrotemp.timeentradasalida = Convert.ToDateTime(reader["timeentradasalida"]);
-                    objce_registrotemp.idestado_es = Convert.ToString(reader["idestado_es"]);
-                }
-                //Cerrar conexion
-                cnx.Close();
-                return objce_registrotemp;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
-        }
+               OracleCommand cmd = new OracleCommand(String.Format("SELECT * FROM registroes WHERE ROWNUM <= 1 and idregistro LIKE  '{0}' ORDER BY idregistro desc", objce_registro.idregistro), cnx);
+               cnx.Open();
+               OracleDataReader reader;
+
+               reader = cmd.ExecuteReader();
+
+               //verifico si hay filas devueltas
+               Boolean hayfilas = reader.HasRows;
+               if (hayfilas == true)
+               {//si hay filas devuelvo el resultado de la consulta
+                   while (reader.Read())
+                   {
+                       objce_registrotemp.idregistro = Convert.ToString(reader["idregistro"]);
+                       objce_registrotemp.dni = Convert.ToString(reader["dni"]);
+                       objce_registrotemp.timeentradasalida = Convert.ToDateTime(reader["timeentradasalida"]);
+                       objce_registrotemp.idestado_es = Convert.ToString(reader["idestado_es"]);
+                   }
+
+               }
+
+               //Cerrar conexion
+               cnx.Close();
+               return objce_registrotemp;
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+       }
+      
     }
 }

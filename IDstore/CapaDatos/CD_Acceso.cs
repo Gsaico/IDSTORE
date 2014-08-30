@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using CapaEntidad;
-
+using System.Data.OracleClient;
 namespace CapaDatos
 {
     public class CD_Acceso
@@ -16,10 +16,10 @@ namespace CapaDatos
         {//el metodo me permite almacenar los datos del nuevo acceso.
             try
             {
-               
 
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
+
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+                OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = cnx;
                 cmd.CommandText = "sp_NuevoAcceso";
@@ -45,46 +45,33 @@ namespace CapaDatos
 
         }
 
+     
+
         public bool VerificarAutorizaciondeAcceso(CE_Acceso objce_acceso)
         {//la funcion me permite recuperar los datos del colaborador en el objeto CE_Colaborador
             try
             {
-                int EstadoAutorizacion=666;
-                         
-                MySqlConnection cnx = Conexion.ObtenerConexionMySql();
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlDataReader reader;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = cnx;
-                cmd.CommandText = "sp_VerificarAutorizaciondeAcceso";
-                //asignar paramentros al procedimiento almacenado
-                cmd.Parameters.AddWithValue("dni", objce_acceso.dni);
-                //abrir la conexion
+               
+
+                CE_Colaborador objce_colaboradortemp = new CE_Colaborador();
+                OracleConnection cnx = Conexion.ObtenerConexionOracle();
+
+
+                OracleCommand cmd = new OracleCommand(String.Format("SELECT * FROM ACCESO WHERE DNI='{0}' AND (TO_DATE(SYSDATE) BETWEEN TO_DATE(FECHADESDE) AND TO_DATE(FECHAHASTA))", objce_acceso.dni), cnx);
+
+               
                 cnx.Open();
-                //ejecutar el procedimiento almacenado
+                OracleDataReader reader;
+
                 reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    EstadoAutorizacion = Convert.ToInt16(reader["EstadoAutorizacion"]);
-                   
-                }
+                //verifico si hay filas devueltas
+                Boolean hayfilas = reader.HasRows;
+                
+
                 //Cerrar conexion
                 cnx.Close();
-                if (EstadoAutorizacion == 1)
-                {
-
-                    return true;
-                }
-
-                else //(EstadoAutorizacion == 0)
-                {
-
-                    return false;
-                }
-
-
-
+                return hayfilas;
             }
             catch (Exception ex)
             {

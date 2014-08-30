@@ -120,8 +120,8 @@ namespace IDstore
                         dataGridView1.Sort(this.dataGridView1.Columns["Column4"], ListSortDirection.Descending);
                         //fin log ES:
 
-                        dt = horaservidor();
-                        String year = dt.ToString(@"yyyy", CultureInfo.InvariantCulture);
+                       dt = horaservidor();
+                       String year = dt.ToString(@"yyyy", CultureInfo.InvariantCulture);
                         String ultimoidregistro;
                         String Nuevoidregistro;
                         //QUERY 1 = PREGUNTO A LA BD, PARAQUE ME DEVUELVA EL ID DEL ULTIMO REGISTRO POR AÑO Y DNI
@@ -145,7 +145,7 @@ namespace IDstore
                         //inicio registro el ingreso del personal
                         objce_registro.idregistro = Nuevoidregistro;
                         objce_registro.dni = objce_colaborador.dni;
-                        objce_registro.timeentradasalida = dt;
+                     //   objce_registro.timeentradasalida = dt;
                         objce_registro.idestado_es = "1";//1= ingreso 0: salida
                         objcn_registro.NuevoRegistroES(objce_registro);
                         //fin registro el ingreso del personal

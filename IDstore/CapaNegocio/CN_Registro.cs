@@ -18,17 +18,17 @@ namespace CapaNegocio
 
         }
 
-        public bool UltimoRegistrodeIngresoSalida(string dni)
-        {
+        //public bool UltimoRegistrodeIngresoSalida(string dni)
+        //{
 
-            bool estado;
+        //    bool estado;
 
-            CD_Registro objcd_registro = new CD_Registro();
+        //    CD_Registro objcd_registro = new CD_Registro();
 
-            estado = objcd_registro.UltimoRegistrodeIngresoSalida(dni);
-            return estado;
+        //    estado = objcd_registro.UltimoRegistrodeIngresoSalida(dni);
+        //    return estado;
 
-        }
+        //}
         public CE_Registro UltimoRegistroXYeardni(CE_Registro objce_registro)
         {
             CD_Registro objcd_registro = new CD_Registro();
