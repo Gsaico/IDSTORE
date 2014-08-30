@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85382193-7171-4446-A50A-3213353F48E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IDstore</RootNamespace>
+    <AssemblyName>IDstore</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbastecerCombustible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbastecerCombustible.Designer.cs">
+      <DependentUpon>AbastecerCombustible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Area.Designer.cs">
+      <DependentUpon>Area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutorizarAcceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutorizarAcceso.Designer.cs">
+      <DependentUpon>AutorizarAcceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AxisCamaraIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AxisCamaraIP.Designer.cs">
+      <DependentUpon>AxisCamaraIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Busqueda de Captura y Video.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busqueda de Captura y Video.Designer.cs">
+      <DependentUpon>Busqueda de Captura y Video.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cargo.Designer.cs">
+      <DependentUpon>Cargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodigodeAbastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodigodeAbastecimiento.Designer.cs">
+      <DependentUpon>CodigodeAbastecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Colaborador.Designer.cs">
+      <DependentUpon>Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Colaboradores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Colaboradores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Fotocheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fotocheck.Designer.cs">
+      <DependentUpon>Fotocheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDstore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDstore.Designer.cs">
+      <DependentUpon>IDstore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrodeColaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrodeColaborador.Designer.cs">
+      <DependentUpon>RegistrodeColaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sensor Temperatura y Humedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sensor Temperatura y Humedad.Designer.cs">
+      <DependentUpon>Sensor Temperatura y Humedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tanque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tanque.Designer.cs">
+      <DependentUpon>Tanque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AbastecerCombustible.resx">
+      <DependentUpon>AbastecerCombustible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Area.resx">
+      <DependentUpon>Area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutorizarAcceso.resx">
+      <DependentUpon>AutorizarAcceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AxisCamaraIP.resx">
+      <DependentUpon>AxisCamaraIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Busqueda de Captura y Video.resx">
+      <DependentUpon>Busqueda de Captura y Video.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cargo.resx">
+      <DependentUpon>Cargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodigodeAbastecimiento.resx">
+      <DependentUpon>CodigodeAbastecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colaborador.resx">
+      <DependentUpon>Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fotocheck.resx">
+      <DependentUpon>Fotocheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IDstore.resx">
+      <DependentUpon>IDstore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RegistrodeColaborador.resx">
+      <DependentUpon>RegistrodeColaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT_Fotocheck.rdlc" />
+    <EmbeddedResource Include="Sensor Temperatura y Humedad.resx">
+      <DependentUpon>Sensor Temperatura y Humedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tanque.resx">
+      <DependentUpon>Tanque.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DS_Colaboradores.xsc">
+      <DependentUpon>DS_Colaboradores.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Colaboradores.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Colaboradores.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_Colaboradores.xss">
+      <DependentUpon>DS_Colaboradores.xsd</DependentUpon>
+    </None>
+    <None Include="Fuente\fre3of9x.ttf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Utiles\arduinoverde_rojo_sonido.ino" />
+    <None Include="Utiles\AXISMediaControlSDK_6_32.zip" />
+    <None Include="Utiles\diagramaBDalmacencombustible.mwb" />
+    <None Include="Utiles\iD store electronica.docx" />
+    <None Include="Utiles\Introducción trabajo final.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{17bef60d-9ea3-4877-9951-dece16f1486c}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{e484b3c9-d59d-4726-8453-b9123d56509d}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login Manager [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clock 2 [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sc_RepairWizard [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Control Panel [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_alpha_Keys_32x32 [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxAXISMEDIACONTROLLib">
+      <Guid>{A48F4EE0-B408-4376-B4C9-BC9CF6E16EBC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AXISMEDIACONTROLLib">
+      <Guid>{A48F4EE0-B408-4376-B4C9-BC9CF6E16EBC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Repair [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clock [1600x1200].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-map-symbol-car-cartoon-gas-pump-truck-road-energy-oil-station-fuel-disel-benzene-gasoline_f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Untitled1.png" />
+    <None Include="Resources\Untitled4.png" />
+    <None Include="Resources\Untitled5.png" />
+    <None Include="Resources\Search 2 [1600x1200].png" />
+    <Content Include="Utiles\diagramabdlogico.png" />
+    <Content Include="Utiles\Dump20140815.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
