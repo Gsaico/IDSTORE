@@ -35,6 +35,10 @@
             this.tssAno = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssDNI = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslTemperatura = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslHumedad = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.personalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarColaboradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +58,6 @@
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarNuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslTemperatura = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslHumedad = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +121,32 @@
             this.tssDNI.Name = "tssDNI";
             this.tssDNI.Size = new System.Drawing.Size(47, 17);
             this.tssDNI.Text = "loading";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(82, 17);
+            this.toolStripStatusLabel4.Text = "Temperatura:";
+            // 
+            // tsslTemperatura
+            // 
+            this.tsslTemperatura.Name = "tsslTemperatura";
+            this.tsslTemperatura.Size = new System.Drawing.Size(47, 17);
+            this.tsslTemperatura.Text = "loading";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(64, 17);
+            this.toolStripStatusLabel6.Text = "Humedad:";
+            // 
+            // tsslHumedad
+            // 
+            this.tsslHumedad.Name = "tsslHumedad";
+            this.tsslHumedad.Size = new System.Drawing.Size(47, 17);
+            this.tsslHumedad.Text = "loading";
             // 
             // menuStrip1
             // 
@@ -283,37 +309,11 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(82, 17);
-            this.toolStripStatusLabel4.Text = "Temperatura:";
-            // 
-            // tsslTemperatura
-            // 
-            this.tsslTemperatura.Name = "tsslTemperatura";
-            this.tsslTemperatura.Size = new System.Drawing.Size(47, 17);
-            this.tsslTemperatura.Text = "loading";
-            // 
-            // toolStripStatusLabel6
-            // 
-            this.toolStripStatusLabel6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(64, 17);
-            this.toolStripStatusLabel6.Text = "Humedad:";
-            // 
-            // tsslHumedad
-            // 
-            this.tsslHumedad.Name = "tsslHumedad";
-            this.tsslHumedad.Size = new System.Drawing.Size(47, 17);
-            this.tsslHumedad.Text = "loading";
-            // 
             // IDstore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1019, 694);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);

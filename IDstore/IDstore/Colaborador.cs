@@ -168,7 +168,7 @@ namespace IDstore
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            Fotocheck imprimirfotocheck = new Fotocheck(txtDNI.Text);
+            Imprimir_Fotocheck imprimirfotocheck = new Imprimir_Fotocheck(txtDNI.Text);
             imprimirfotocheck.Show();
 
 

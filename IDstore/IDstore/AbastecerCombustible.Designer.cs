@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbastecerCombustible));
             this.gbCombustible = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblestadoaxisrecord = new System.Windows.Forms.Label();
             this.lblIdtanque = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,16 +53,14 @@
             this.txtGalones = new System.Windows.Forms.TextBox();
             this.btnAbastecerCombustible = new System.Windows.Forms.Button();
             this.amc = new AxAXISMEDIACONTROLLib.AxAxisMediaControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gbCombustible.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.amc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amc)).BeginInit();
             this.SuspendLayout();
             // 
             // gbCombustible
             // 
-            this.gbCombustible.Controls.Add(this.pictureBox1);
             this.gbCombustible.Controls.Add(this.lblestadoaxisrecord);
             this.gbCombustible.Controls.Add(this.lblIdtanque);
             this.gbCombustible.Controls.Add(this.label6);
@@ -85,6 +84,14 @@
             this.gbCombustible.TabIndex = 7;
             this.gbCombustible.TabStop = false;
             this.gbCombustible.Text = "Abastecimiento de Combustible";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(372, 201);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 36);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // lblestadoaxisrecord
             // 
@@ -289,14 +296,6 @@
             this.amc.OnStatusChange += new AxAXISMEDIACONTROLLib._IAxisMediaControlEvents_OnStatusChangeEventHandler(this.amc_OnStatusChange);
             this.amc.OnNewVideoSize += new AxAXISMEDIACONTROLLib._IAxisMediaControlEvents_OnNewVideoSizeEventHandler(this.amc_OnNewVideoSize);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(360, 132);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Interval = 5000;
@@ -306,7 +305,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(548, 240);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.amc);
             this.Controls.Add(this.gbCombustible);
             this.Controls.Add(this.txtGalones);
@@ -317,8 +318,8 @@
             this.Load += new System.EventHandler(this.AbastecerCombustible_Load);
             this.gbCombustible.ResumeLayout(false);
             this.gbCombustible.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.amc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

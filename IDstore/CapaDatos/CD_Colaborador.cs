@@ -26,12 +26,12 @@ namespace CapaDatos
             {
                 Imagenes newfoto = new Imagenes();
                 byte[] areglobyte = newfoto.imageToByteArray(objce_colaborador.foto);
-                OracleParameter blobParameter = new OracleParameter();
+                //OracleParameter blobParameter = new OracleParameter();
 
 
-                blobParameter.OracleType = OracleType.Clob;
-                blobParameter.ParameterName = "foto";
-                blobParameter.Value = areglobyte;
+                //blobParameter.OracleType = OracleType.Blob;
+                //blobParameter.ParameterName = "foto";
+                //blobParameter.Value = areglobyte;
 
                 OracleConnection cnx = Conexion.ObtenerConexionOracle();
                 OracleCommand cmd = new OracleCommand();

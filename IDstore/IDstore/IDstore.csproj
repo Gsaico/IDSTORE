@@ -39,6 +39,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
@@ -101,22 +102,22 @@
     <Compile Include="Colaborador.Designer.cs">
       <DependentUpon>Colaborador.cs</DependentUpon>
     </Compile>
-    <Compile Include="DS_Colaboradores.Designer.cs">
+    <Compile Include="dsColaborador.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DS_Colaboradores.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Fotocheck.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Fotocheck.Designer.cs">
-      <DependentUpon>Fotocheck.cs</DependentUpon>
+      <DependentUpon>dsColaborador.xsd</DependentUpon>
     </Compile>
     <Compile Include="IDstore.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IDstore.Designer.cs">
       <DependentUpon>IDstore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Imprimir_Fotocheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Imprimir_Fotocheck.Designer.cs">
+      <DependentUpon>Imprimir_Fotocheck.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -174,11 +175,11 @@
     <EmbeddedResource Include="Colaborador.resx">
       <DependentUpon>Colaborador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fotocheck.resx">
-      <DependentUpon>Fotocheck.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="IDstore.resx">
       <DependentUpon>IDstore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Imprimir_Fotocheck.resx">
+      <DependentUpon>Imprimir_Fotocheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -196,6 +197,7 @@
     <EmbeddedResource Include="RegistrodeColaborador.resx">
       <DependentUpon>RegistrodeColaborador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptFotocheck.rdlc" />
     <EmbeddedResource Include="RPT_Fotocheck.rdlc" />
     <EmbeddedResource Include="Sensor Temperatura y Humedad.resx">
       <DependentUpon>Sensor Temperatura y Humedad.cs</DependentUpon>
@@ -203,16 +205,16 @@
     <EmbeddedResource Include="Tanque.resx">
       <DependentUpon>Tanque.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DS_Colaboradores.xsc">
-      <DependentUpon>DS_Colaboradores.xsd</DependentUpon>
+    <None Include="dsColaborador.xsc">
+      <DependentUpon>dsColaborador.xsd</DependentUpon>
     </None>
-    <None Include="DS_Colaboradores.xsd">
+    <None Include="dsColaborador.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_Colaboradores.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsColaborador.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DS_Colaboradores.xss">
-      <DependentUpon>DS_Colaboradores.xsd</DependentUpon>
+    <None Include="dsColaborador.xss">
+      <DependentUpon>dsColaborador.xsd</DependentUpon>
     </None>
     <None Include="Fuente\fre3of9x.ttf" />
     <None Include="Properties\Settings.settings">
