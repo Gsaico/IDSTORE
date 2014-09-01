@@ -268,5 +268,10 @@ namespace IDstore
             AbastecerCombustible AbastecerCombustiblex = new AbastecerCombustible(idregistro);
             AbastecerCombustiblex.ShowDialog();
         }
+
+        private void txtDNI_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -146,7 +146,7 @@ namespace IDstore
             // Set properties, deciding what url completion to use by MediaType.
             amc.MediaUsername = "ROOT";
             amc.MediaPassword = "12345";
-            amc.MediaURL = CompleteURL("192.168.1.40", MediaType.mjpeg);
+            amc.MediaURL = CompleteURL("169.254.1.55", MediaType.mjpeg);
 
             //  textBox1.Text = CompleteURL(myUrlBox.Text, (MediaType)myTypeBox.SelectedItem);
             // Start the streaming

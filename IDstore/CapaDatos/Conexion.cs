@@ -16,16 +16,7 @@ namespace CapaDatos
 {
     class Conexion
     {
-        public static MySqlConnection ObtenerConexionMySql()
-        {
-            MySqlConnection conexion;
-
-            //@"Server=PERVAC-PC\MSSQLSERVERX;database=id_check_db;integrated security=true"
-
-            conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["IDstorecnnMySql"].ToString());
-
-            return conexion;
-        }
+       
         public static OracleConnection ObtenerConexionOracle()
         {
             OracleConnection conexion;

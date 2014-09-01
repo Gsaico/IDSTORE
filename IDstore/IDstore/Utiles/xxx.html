@@ -1,0 +1,93 @@
+<pre>
+#include&nbsp;&lt;<span style="color: #CC6600;">DHT22</span>.h&gt;
+<span style="color: #7E7E7E;">//&nbsp;Only&nbsp;used&nbsp;for&nbsp;sprintf</span>
+#include&nbsp;&lt;stdio.h&gt;
+
+<span style="color: #7E7E7E;">//&nbsp;Data&nbsp;wire&nbsp;is&nbsp;plugged&nbsp;into&nbsp;port&nbsp;7&nbsp;on&nbsp;the&nbsp;Arduino</span>
+<span style="color: #7E7E7E;">//&nbsp;Connect&nbsp;a&nbsp;4.7K&nbsp;resistor&nbsp;between&nbsp;VCC&nbsp;and&nbsp;the&nbsp;data&nbsp;pin&nbsp;(strong&nbsp;pullup)</span>
+#define&nbsp;DHT22_PIN&nbsp;6
+
+<span style="color: #7E7E7E;">//&nbsp;Setup&nbsp;a&nbsp;DHT22&nbsp;instance</span>
+<span style="color: #CC6600;">DHT22</span> myDHT22(DHT22_PIN);
+<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> LED_Rojo=8;
+<span style="color: #CC6600;">const</span> <span style="color: #CC6600;">int</span> LED_Verde=10;
+<span style="color: #CC6600;">int</span> inByte = 0;
+<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>(<span style="color: #CC6600;">void</span>)
+{
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// start serial port</span>
+&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">begin</span>(9600);
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(LED_Verde, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(LED_Rojo, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Verde, <span style="color: #006699;">LOW</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Rojo, <span style="color: #006699;">LOW</span>);
+}
+
+<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>(<span style="color: #CC6600;">void</span>)
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">available</span>() &gt; 0){<span style="color: #7E7E7E;">//respuesta de puerto serie mayor a cero</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inByte&nbsp;=&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">read</span>(); <span style="color: #7E7E7E;">//lectura del puerto serial  </span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(inByte);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span>(inByte == <span style="color: #006699;">'0'</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Verde, <span style="color: #006699;">LOW</span>);<span style="color: #7E7E7E;">//apago led verde</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(inByte==<span style="color: #006699;">'1'</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Verde, <span style="color: #006699;">HIGH</span>);<span style="color: #7E7E7E;">// enciendo el led verde</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(500); <span style="color: #7E7E7E;">// espera durante medio segundo</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Verde, <span style="color: #006699;">LOW</span>);}<span style="color: #7E7E7E;">// apago el led verde</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(inByte==<span style="color: #006699;">'2'</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Rojo, <span style="color: #006699;">LOW</span>);<span style="color: #7E7E7E;">//apago el led rojo</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">else</span> <span style="color: #CC6600;">if</span>(inByte==<span style="color: #006699;">'3'</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Rojo, <span style="color: #006699;">HIGH</span>);<span style="color: #7E7E7E;">// enciendo el led rojo</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">tone</span>(6, 4978, 200);<span style="color: #7E7E7E;">//emito un sonido en pwm 6, 200ms, Frecuencia 4978</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(500);<span style="color: #7E7E7E;">// espera durante medio segundo</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(LED_Rojo, <span style="color: #006699;">LOW</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;DHT22_ERROR_t&nbsp;errorCode;
+&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(2000);
+&nbsp;&nbsp;
+
+&nbsp;&nbsp;errorCode&nbsp;=&nbsp;myDHT22.<span style="color: #CC6600;">readData</span>();
+&nbsp;&nbsp;<span style="color: #CC6600;">switch</span>(errorCode)
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_ERROR_NONE</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Serial.print("Got Data ");</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(myDHT22.<span style="color: #CC6600;">getHumidity</span>());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">","</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(myDHT22.<span style="color: #CC6600;">getTemperatureC</span>());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>();
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_ERROR_CHECKSUM</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"check sum error "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(myDHT22.<span style="color: #CC6600;">getTemperatureC</span>());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"C "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">print</span>(myDHT22.<span style="color: #CC6600;">getHumidity</span>());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"%"</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_BUS_HUNG</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"BUS Hung "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_ERROR_NOT_PRESENT</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"Not Present "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_ERROR_ACK_TOO_LONG</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"ACK time out "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_ERROR_SYNC_TIMEOUT</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"Sync Timeout "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> <span style="color: #006699;">DHT_ERROR_DATA_TIMEOUT</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;"><b>Serial</b></span>.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"Data Timeout "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;
+&nbsp;&nbsp;}
+}
+
+</pre>

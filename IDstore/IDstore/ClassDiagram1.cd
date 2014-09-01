@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IDstore.AbastecerCombustible">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAQACAAAAjABKBIABACEACAGhAYgIAKIECMBAABwAEg=</HashCode>
+      <FileName>AbastecerCombustible.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Area">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAAAAAACAAAACAABAAAAQAAAAAAAAAgA=</HashCode>
+      <FileName>Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.AutorizarAcceso">
+    <Position X="5.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAQACAAAICAADBAAQADEAEECBAAAAEAAACAUAAAAACA=</HashCode>
+      <FileName>AutorizarAcceso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.AxisCamaraIP">
+    <Position X="19.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>JAAACAACACIABBAIJAiAQAAGgAqAAABIAAAgAAAQAGg=</HashCode>
+      <FileName>AxisCamaraIP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Busqueda_de_Captura_y_Video">
+    <Position X="24.25" Y="0.5" Width="2" />
+    <NestedTypes>
+      <Enum Name="IDstore.Busqueda_de_Captura_y_Video.State" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Busqueda de Captura y Video.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QACApAIQACAeQBAAAATRQAACAggAAY4EIKAgAgBAAgg=</HashCode>
+      <FileName>Busqueda de Captura y Video.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Cargo">
+    <Position X="10" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAAAAAACAAAASAIBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.CodigodeAbastecimiento">
+    <Position X="3" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EACACAAAACCACBAgAADAgAECBgwAAEAAACAQAEABBCA=</HashCode>
+      <FileName>CodigodeAbastecimiento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Colaborador">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>GAAACIAAIGAACFQAACiEQAGCZAAQAMIAACAQAQABECA=</HashCode>
+      <FileName>Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.dsColaborador">
+    <Position X="19.5" Y="7.75" Width="2" />
+    <NestedTypes>
+      <Delegate Name="IDstore.dsColaborador.COLABORADORESRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="IDstore.dsColaborador.COLABORADORESDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="IDstore.dsColaborador.COLABORADORESRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="IDstore.dsColaborador.COLABORADORESRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAwAAAAJABEAAQAAAAQgCQBgAAAAAgAEABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.IDstore">
+    <Position X="12.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>p1AagAQhQCDRIAIAIGCAA4SCCAAAAgiApIABAQQAiAE=</HashCode>
+      <FileName>IDstore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Imprimir_Fotocheck">
+    <Position X="5.25" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAADACAEAAAAAACAAAACAAIAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Imprimir_Fotocheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Login">
+    <Position X="10" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAARAAAACAAAACAIAAAAAAAAASAAAAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Program">
+    <Position X="26.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.RegistrodeColaborador">
+    <Position X="22" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAABImAQQAcACACEAhMCQAy4FQAEACAQAEAAACQ=</HashCode>
+      <FileName>RegistrodeColaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Sensor_Temperatura_y_Humedad">
+    <Position X="14.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAQCAAAAAAAACCAAACQAAAIACAAABAAAAEAAA=</HashCode>
+      <FileName>Sensor Temperatura y Humedad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Tanque">
+    <Position X="17" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACBAAAACEAAECAAAAQAAAACAAAEAAAAg=</HashCode>
+      <FileName>Tanque.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Usuario">
+    <Position X="7.5" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.dsColaboradorTableAdapters.COLABORADORESTableAdapter">
+    <Position X="17" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcQIAAAAAAAACEICAAAAAgAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.dsColaboradorTableAdapters.TableAdapterManager">
+    <Position X="14.75" Y="5" Width="2" />
+    <NestedTypes>
+      <Enum Name="IDstore.dsColaboradorTableAdapters.TableAdapterManager.UpdateOrderOption" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Class Name="IDstore.dsColaboradorTableAdapters.TableAdapterManager.SelfReferenceComparer" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAACAAAABBBAEBAAAAMAAgAAICgAAAAAQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Properties.Resources">
+    <Position X="10" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QIAEAAAAQjAAIAAAAAABESAgAQAAAAAEQgAAAIACAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDstore.Properties.Settings">
+    <Position X="26.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAACAAQAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="IDstore.MediaType">
+    <Position X="26.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAgAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AxisCamaraIP.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

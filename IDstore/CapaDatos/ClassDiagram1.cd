@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CapaDatos.CD_Abastecimiento">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAA=</HashCode>
+      <FileName>CD_Abastecimiento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Acceso">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CD_Acceso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Area">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAABAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>CD_Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Cargo">
+    <Position X="3.25" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAABAAA=</HashCode>
+      <FileName>CD_Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Colaborador">
+    <Position X="0.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>CD_Colaborador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Registro">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>CD_Registro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Servidor">
+    <Position X="4.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CD_Servidor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_Tanque">
+    <Position X="0.5" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CD_Tanque.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.CD_TanqueDetalleMov">
+    <Position X="0.5" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAEAAIAAAAAAAAAAAAAAAYAAAAAAEAAAAAA=</HashCode>
+      <FileName>CD_TanqueDetalleMov.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.Conexion">
+    <Position X="0.5" Y="7.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Conexion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CapaDatos.Imagenes">
+    <Position X="4.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Imagenes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

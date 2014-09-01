@@ -73,7 +73,7 @@
             this.myRecordButton.Name = "myRecordButton";
             this.myRecordButton.Size = new System.Drawing.Size(80, 23);
             this.myRecordButton.TabIndex = 20;
-            this.myRecordButton.Text = "Record";
+            this.myRecordButton.Text = "Grabar";
             this.myRecordButton.Click += new System.EventHandler(this.myRecordButton_Click);
             // 
             // myStopButton
@@ -83,7 +83,7 @@
             this.myStopButton.Name = "myStopButton";
             this.myStopButton.Size = new System.Drawing.Size(168, 23);
             this.myStopButton.TabIndex = 18;
-            this.myStopButton.Text = "Stop";
+            this.myStopButton.Text = "Detener";
             this.myStopButton.Click += new System.EventHandler(this.myStopButton_Click);
             // 
             // myTypeBox
@@ -110,7 +110,7 @@
             this.myUrlBox.Name = "myUrlBox";
             this.myUrlBox.Size = new System.Drawing.Size(168, 20);
             this.myUrlBox.TabIndex = 12;
-            this.myUrlBox.Text = "192.168.1.40";
+            this.myUrlBox.Text = "169.254.1.55";
             // 
             // myPassBox
             // 
@@ -164,7 +164,7 @@
             this.myPlayFileButton.Name = "myPlayFileButton";
             this.myPlayFileButton.Size = new System.Drawing.Size(80, 23);
             this.myPlayFileButton.TabIndex = 17;
-            this.myPlayFileButton.Text = "Play File";
+            this.myPlayFileButton.Text = "Reproducir Archivo";
             this.myPlayFileButton.Click += new System.EventHandler(this.myPlayFileButton_Click);
             // 
             // passLabel
@@ -184,7 +184,7 @@
             this.btnsavejpeg.Name = "btnsavejpeg";
             this.btnsavejpeg.Size = new System.Drawing.Size(80, 23);
             this.btnsavejpeg.TabIndex = 24;
-            this.btnsavejpeg.Text = "SaveJPEG";
+            this.btnsavejpeg.Text = "Guardar JPEG";
             this.btnsavejpeg.UseVisualStyleBackColor = true;
             this.btnsavejpeg.Click += new System.EventHandler(this.btnsavejpeg_Click);
             // 
@@ -192,6 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(785, 570);
             this.Controls.Add(this.btnsavejpeg);
             this.Controls.Add(this.userLabel);

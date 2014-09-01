@@ -198,13 +198,13 @@
       <DependentUpon>RegistrodeColaborador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptFotocheck.rdlc" />
-    <EmbeddedResource Include="RPT_Fotocheck.rdlc" />
     <EmbeddedResource Include="Sensor Temperatura y Humedad.resx">
       <DependentUpon>Sensor Temperatura y Humedad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tanque.resx">
       <DependentUpon>Tanque.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="dsColaborador.xsc">
       <DependentUpon>dsColaborador.xsd</DependentUpon>
     </None>
